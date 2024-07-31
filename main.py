@@ -1,10 +1,12 @@
-from alv_tree import AVLTree
+from red_black_tree import RedBlackTree
 
-tree = AVLTree()
-tree.insertValue(10)
-tree.insertValue(20)
-tree.insertValue(30)
-tree.insertValue(40)
-tree.insertValue(50)
+tree = RedBlackTree()
+
+tree.insert(51)
+tree.insert(37)
+tree.insert(32)
+tree.insert(11)
+tree.insert(20)
+tree.insert(8)
 
 print(tree)

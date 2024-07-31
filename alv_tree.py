@@ -1,9 +1,9 @@
-from node import NODE
+from avlnode import AvlNode
 
 
 class AVLTree:
     def __init__(self):
-        self.root: NODE = None
+        self.root: AvlNode = None
 
     @staticmethod
     def height(node):
@@ -11,7 +11,7 @@ class AVLTree:
             return 0
         return node.height
 
-    def heightConsideringLeftAndRight(self, node: NODE):
+    def heightConsideringLeftAndRight(self, node: AvlNode):
         return 1 + max(self.height(node.left_child), self.height(node.right_child))
 
     def getBalanceFactor(self, node):
@@ -19,9 +19,9 @@ class AVLTree:
             return 0
         return self.height(node.left_child) - self.height(node.right_child)
 
-    def insert(self, root: NODE, value):
+    def insert(self, root: AvlNode, value):
         if not root:
-            return NODE(value)
+            return AvlNode(value)
         elif value < root.value:
             root.left_child = self.insert(root.left_child, value)
         else:
@@ -51,7 +51,7 @@ class AVLTree:
 
         return root
 
-    def leftRotate(self, z: NODE) -> NODE:
+    def leftRotate(self, z: AvlNode) -> AvlNode:
         y = z.right_child
         T2 = y.left_child
 
@@ -63,7 +63,7 @@ class AVLTree:
 
         return y
 
-    def rightRotate(self, z: NODE) -> NODE:
+    def rightRotate(self, z: AvlNode) -> AvlNode:
         y = z.left_child
         T3 = y.right_child
 
