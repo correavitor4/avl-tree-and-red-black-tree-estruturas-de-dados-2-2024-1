@@ -4,6 +4,7 @@ from avlnode import AvlNode
 class AVLTree:
     def __init__(self):
         self.root: AvlNode = None
+        self.rotations: int = 0
 
     @staticmethod
     def height(node):
@@ -61,6 +62,8 @@ class AVLTree:
         z.height = self.heightConsideringLeftAndRight(z)
         y.height = self.heightConsideringLeftAndRight(y)
 
+        self.rotations = self.rotations + 1
+
         return y
 
     def rightRotate(self, z: AvlNode) -> AvlNode:
@@ -72,6 +75,8 @@ class AVLTree:
 
         z.height = self.heightConsideringLeftAndRight(z)
         y.height = self.heightConsideringLeftAndRight(y)
+
+        self.rotations = self.rotations + 1
 
         return y
 

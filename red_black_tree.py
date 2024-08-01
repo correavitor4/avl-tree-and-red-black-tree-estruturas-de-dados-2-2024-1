@@ -21,6 +21,7 @@ class RedBlackTree():
         self.TNULL.left = None
         self.TNULL.right = None
         self.root = self.TNULL
+        self.rotations: int = 0
 
     # Preorder
     def pre_order_helper(self, node):
@@ -238,7 +239,7 @@ class RedBlackTree():
             y = y.parent
         return y
 
-    def predecessor(self,  x):
+    def predecessor(self, x):
         if (x.left != self.TNULL):
             return self.maximum(x.left)
 
@@ -264,6 +265,7 @@ class RedBlackTree():
             x.parent.right = y
         y.left = x
         x.parent = y
+        self.rotations = self.rotations + 1
 
     def right_rotate(self, x):
         y = x.left
@@ -280,6 +282,7 @@ class RedBlackTree():
             x.parent.left = y
         y.right = x
         x.parent = y
+        self.rotations = self.rotations + 1
 
     def insert(self, key):
         node = Node(key)
