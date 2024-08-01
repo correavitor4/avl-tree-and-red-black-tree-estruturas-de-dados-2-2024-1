@@ -9,4 +9,4 @@ tree.insert(11)
 tree.insert(20)
 tree.insert(8)
 
-print(tree)
+tree.print_tree()
